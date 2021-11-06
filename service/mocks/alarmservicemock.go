@@ -5,10 +5,8 @@
 package alarmservicemock
 
 import (
-	"fmt"
-	reflect "reflect"
-
 	gomock "github.com/golang/mock/gomock"
+	reflect "reflect"
 )
 
 // MockAlarmService is a mock of AlarmService interface
@@ -36,16 +34,26 @@ func (m *MockAlarmService) EXPECT() *MockAlarmServiceMockRecorder {
 
 // StartConsumer mocks base method
 func (m *MockAlarmService) StartConsumer(status chan int) {
-	fmt.Println("Invoked MOC cosumer")
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "StartConsumer", status)
-
 }
 
 // StartConsumer indicates an expected call of StartConsumer
 func (mr *MockAlarmServiceMockRecorder) StartConsumer(status interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "StartConsumer", reflect.TypeOf((*MockAlarmService)(nil).StartConsumer), status)
+}
+
+// Produce mocks base method
+func (m *MockAlarmService) Produce() {
+	m.ctrl.T.Helper()
+	m.ctrl.Call(m, "Produce")
+}
+
+// Produce indicates an expected call of Produce
+func (mr *MockAlarmServiceMockRecorder) Produce() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Produce", reflect.TypeOf((*MockAlarmService)(nil).Produce))
 }
 
 // Check mocks base method

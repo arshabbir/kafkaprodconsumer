@@ -24,6 +24,7 @@ func (ap *app) StartApplication(appStatus *int) {
 
 	//Start the consumer
 	go ap.Service.StartConsumer(status)
+	//go ap.Service.Produce()
 
 	for {
 		select {
